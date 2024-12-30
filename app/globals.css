@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 3%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 3%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 215 27.9% 16.9%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 217.9 10.6% 64.9%;
+  --accent: 215 27.9% 16.9%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+  --ring: 221 83% 53%;
+}
+
+* {
+  font-family: 'Lexend', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Audiowide', cursive;
+}
+
+body {
+  background: #000000;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card {
+  background: #0A0A0A;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glow {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  border: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  transform: scale(0);
+  transition: transform 0.3s ease-out;
+}
+
+.btn-glow:hover::before {
+  transform: scale(1);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+.timetable {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+.timetable-item {
+  display: contents;
+}
+
+.timetable-item > * {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timetable-item:last-child > * {
+  border-bottom: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* NProgress styles */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #3B82F6;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #3B82F6, 0 0 5px #3B82F6;
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
